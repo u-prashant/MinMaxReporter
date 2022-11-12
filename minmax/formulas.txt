@@ -1,0 +1,24 @@
+Total =SUM(G:S)
+Count Month =COUNTIF(H:S, ">0")
+Avg. Consumption =AVERAGE(S,(ROUND(AVERAGE(Q:S,(AVERAGE(H:S))),0)))
+Future Stock =(X-W)+Y+Z
+Order-1 =AA-(V*3)
+Coverage =IF(V=0,AA,AA/V)
+Max Month =$AZ$6+AF
+Average Monthly Demand =V
+Class =IF(V9<1,"Low",IF(AND(U9>=9,AL9>(SUMIF($J$9:$J$79,J9,$AL$9:$AL$79)/COUNTIF($J$9:$J$79,J9))),"High","Medium"))
+=IF(V{row}<1,"Low",IF(AND(U{row}>=9,V{row}>(SUMIF($C$2:$C${last_row},C{row},$V$2:$V${last_row})/COUNTIF($C$2:$C${last_row},C{row}))),"High","Medium"))
+DDL =IF(AG="no",0,ROUNDUP(AF*AM,0))
+Next Supply Time =AO+ROUND(AM/2,0)
+Alpha = =IF(AM=0,0,ROUND(STDEV(H:S)/AM,1))
+
+Coefficient Of Security = =IF(AM{row}=0,0,IF(AQ{row}>3.7,2.4,IF(AQ{row}<0.1,1.5,VLOOKUP(BG9,coefficient.!$A$3:$B$39,2,0))))
+
+SS1 =IF(Class="Low",MIN(2*AM,IF(AG="NO",0,STDEVA(H:S)*AR*SQRT(AF+AK))),IF(Class="Medium",MIN(4*AM,IF(AG="NO",0,STDEVA(H:S)*AR*SQRT(AF+AK))),MIN(6*AM,IF(AG="NO",0,STDEVA(H:S)*AR*SQRT(AF+AK)))))
+SS2 =IF(AG="NO",0,(AM*0))
+SS3 =AS+AT
+
+SSConstraint = =IF(OR(AG{row}="no",AU{row}=0),0,IF(OR(AN{row}="low",AN{row}="medium"),(ROUND(MAX(AI{row},MIN(AU{row}*AH{row},AM{row}*BD{row})),0)),(ROUND(MAX(AI{row},MAX(AU{row}*AH{row},AM{row}*BD{row})),0))))
+
+
+

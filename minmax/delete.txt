@@ -1,0 +1,23 @@
+    ['item number', 'configuration', 'size', 'color', 'warehouse',
+       'posted quantity', 'deducted', 'received', 'physical reserved',
+       'available physical', 'ordered', 'ordered reserved', 'total available',
+       'item code', 'item name', 'group', 'product', 'product category',
+       'supplier', '..', 'considered in min-max', 'lead time (days)',
+       'mode (sea/ air/ surface)', 'min-max (yes/no)', 'code for roq',
+       'unique code']
+
+['jornal name', 'journal no.', 'date', 'item number', 'material',
+'surfacing', 'lens type', 'dia', 'sph/base', 'cyl/add', 'qty',
+'unit price', 'cost amount', 'blank', 'oci no', 'whs', 'configuration',
+'size', 'color', 'item code', 'item name', 'group', 'product',
+'product category', 'supplier', '..', 'considered in min-max',
+'lead time (days)', 'mode (sea/ air/ surface)', 'min-max (yes/no)',
+'code for roq', 'unique code']
+
+['vendor account', 'name', 'purchase order', 'approval status',
+'item number', 'product name', 'configuration', 'size', 'color',
+'warehouse', 'deliver remainder', 'unit', 'delivery date',
+'today plus lead time', 'days to lead time begins', 'item code',
+'item name', 'group', 'product', 'product category', 'supplier', '..',
+'considered in min-max', 'lead time (days)', 'mode (sea/ air/ surface)',
+'min-max (yes/no)', 'code for roq', 'unique code']
