@@ -1,3 +1,5 @@
+import re
+
 import numpy as np
 
 from constants import Columns, ProductListColumns, SOHColumns, ConsumptionColumns, OITColumns, MinMaxReportColumns
@@ -11,6 +13,7 @@ class MinMaxReporter:
         self.oit_df = oit_df
         self.prev_minmax_df = prev_minmax_df
         self.current_date = current_date
+        self.regex_pattern = re.compile(r"(^.*?(?= BC)) BC(.*?(?= ADD)) ADD(.*?(?= DIA)) DIA(.*)")
 
     def generate_report(self):
         df = self.__combine_all_info_together()
@@ -55,13 +58,19 @@ class MinMaxReporter:
             df.loc[index, Columns.CONFIGURATION] = config
         return df
 
-    @staticmethod
-    def __extract_item_config_dia_color(value):
-        item, size, color, config = value.split(' ')
-        size = size[2:]
-        color = color[3:]
-        config = config[3:]
-        return item, size, color, config
+    def __extract_item_config_dia_color(self, value):
+        try:
+            item, size, color, config = '', '', '', ''
+            for match in self.regex_pattern.finditer(value):
+                item = match.group(1).strip()
+                size = match.group(2).strip()
+                color = match.group(3).strip()
+                config = match.group(4).strip()
+                break
+            return item, size, color, config
+        except Exception as e:
+            print("Invalid Unique Code: {}".format(value))
+            raise e
 
     def __add_supplier(self, df):
         item_number_to_supplier_map = self.__form_map(self.product_list_df, ProductListColumns.ITEM_CODE, ProductListColumns.SUPPLIER)
