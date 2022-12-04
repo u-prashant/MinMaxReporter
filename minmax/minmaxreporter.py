@@ -39,7 +39,7 @@ class MinMaxReporter:
     def __combine_all_info_together(self):
         df = self.soh_df.merge(self.consumption_df, how='outer', on=Columns.UNIQUE_CODE)
         df = df.merge(self.oit_df, how='outer', on=Columns.UNIQUE_CODE)
-        df = df.merge(self.prev_minmax_df, how='outer', on=Columns.UNIQUE_CODE)
+        df = df.merge(self.prev_minmax_df, how='right', on=Columns.UNIQUE_CODE)
         return df
 
     @staticmethod

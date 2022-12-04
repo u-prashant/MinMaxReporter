@@ -1,7 +1,7 @@
 class Formula:
     @staticmethod
     def total(row):
-        return f'=SUM(G{row}:S{row})'
+        return f'=SUM(H{row}:S{row})'
 
     @staticmethod
     def count_month(row):
@@ -9,7 +9,7 @@ class Formula:
 
     @staticmethod
     def avg_consumption(row):
-        return f'=AVERAGE(S{row},(ROUND(AVERAGE(Q{row}:S{row},(AVERAGE(H{row}:S{row}))),0)))'
+        return f'=AVERAGE(S{row},(ROUND(AVERAGE(P{row}:S{row},(AVERAGE(G{row}:S{row}))),0)))'
 
     @staticmethod
     def future_stock(row):
